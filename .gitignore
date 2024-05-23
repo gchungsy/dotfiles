@@ -5,5 +5,7 @@
 !.gitignore
 !.vimrc
 !setup.sh
+!README.md
 
-!.config/nvim/*
+!.config/nvim/
+!/test/test/
