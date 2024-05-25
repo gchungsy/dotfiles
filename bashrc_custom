@@ -1,0 +1,36 @@
+# Aliases for Common Commands
+alias ll='ls -l'
+alias ..='cd ..'
+alias ...='cd ../..'
+alias mkdir='mkdir -pv'
+alias rm='rm -i'
+alias cp='cp -i'
+alias mv='mv -i'
+
+# System Maintenance
+alias update='sudo apt update && sudo apt upgrade'
+alias clean='sudo apt autoremove && sudo apt autoclean'
+
+# Shortcuts for Navigation
+alias proj='cd ~/projects && ll'
+
+# Git Shortcuts
+alias g='git'
+alias ga='git add .'
+alias gs='git status'
+alias gc='git commit'
+alias gd='git diff'
+
+alias d='docker'
+
+# Environment variables
+export EDITOR=vim
+export PATH="$HOME/bin:$PATH"
+
+# Functions for Routine Tasks
+function gitpush() {
+    g add .
+    g commit -m "$1"
+    g push
+}
+
