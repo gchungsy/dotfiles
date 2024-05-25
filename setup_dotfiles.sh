@@ -13,3 +13,10 @@ chmod +x install_packages.sh customize_shell.sh
 ./install_packages.sh
 ./customize_shell.sh
 
+# Make common directories
+mkdir -p ~/projects
+mkdir -p ~/bin
+
+# Make Symlinks
+ln -s $(which batcat) ~/bin/bat
+ln -s $(which fdfind) ~/bin/fd

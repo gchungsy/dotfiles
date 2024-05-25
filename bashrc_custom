@@ -1,7 +1,10 @@
 # Aliases for Common Commands
-alias ll='ls -l'
-alias ..='cd ..'
-alias ...='cd ../..'
+alias ll='ls -la'
+alias ..='cd .. && ll'
+alias ...='cd ../.. && ll'
+alias ~='cd ~ && ll'
+
+# Aliases for Directory and File Management
 alias mkdir='mkdir -pv'
 alias rm='rm -i'
 alias cp='cp -i'
@@ -10,9 +13,13 @@ alias mv='mv -i'
 # System Maintenance
 alias update='sudo apt update && sudo apt upgrade'
 alias clean='sudo apt autoremove && sudo apt autoclean'
+alias sb='source ~/.bashrc'
 
 # Shortcuts for Navigation
-alias proj='cd ~/projects && ll'
+alias prj='cd ~/projects && ll'
+alias dot='cd ~/dotfiles && ll'
+alias bin='cd ~/bin && ll'
+alias nt='cd ~/notes && ll'
 
 # Git Shortcuts
 alias g='git'
@@ -21,14 +28,18 @@ alias gs='git status'
 alias gc='git commit'
 alias gd='git diff'
 
+# Docker Shortcuts
 alias d='docker'
 
 # Environment variables
 export EDITOR=vim
 export PATH="$HOME/bin:$PATH"
 
+# Aliases for Common Tasks
+alias mknt='vim ~/notes/note_$(date +"%Y-%m-%d").md'
+
 # Functions for Routine Tasks
-function gitpush() {
+function push() {
     g add .
     g commit -m "$1"
     g push
