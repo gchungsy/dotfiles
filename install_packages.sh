@@ -93,4 +93,5 @@ sudo apt install -y wget
 # Install tldr: Simplified and community-driven man pages with practical examples
 sudo apt install -y tldr
 
-
+# Install mosh: Remote terminal application that allows for more reliable and responsive SSH conections
+sudo apt install -y mosh
