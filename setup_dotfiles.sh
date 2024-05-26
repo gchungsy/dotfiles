@@ -18,5 +18,6 @@ mkdir -p ~/projects
 mkdir -p ~/bin
 
 # Make Symlinks
+ln -s $(pwd)/scripts/weather ~/bin/weather
 ln -s $(which batcat) ~/bin/bat
 ln -s $(which fdfind) ~/bin/fd

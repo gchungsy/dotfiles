@@ -1,0 +1,5 @@
+#!/bin/bash
+
+# Shortcut to navigate to the projects directory
+echo "checking weather in \"burnaby\""
+curl wttr.in/burnaby
