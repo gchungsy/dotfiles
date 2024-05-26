@@ -41,8 +41,8 @@ elif [ "$shell_choice" == "2" ]; then
 	touch $ZSHRC_FILE
     fi
 
-    if ! grep -q "source ~/dotfiles/bashrc_custom" ~/.zshrc; then
-        echo "source ~/dotfiles/bashrc_custom" >> ~/.zshrc
+    if ! grep -q "source ~/dotfiles/zshrc_custom" ~/.zshrc; then
+        echo "source ~/dotfiles/zshrc_custom" >> ~/.zshrc
     fi
 
     # Change default shell to zsh

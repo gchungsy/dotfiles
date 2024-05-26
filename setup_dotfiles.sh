@@ -8,16 +8,16 @@ fi
 
 # Make each script exectuable
 chmod +x install_packages.sh customize_shell.sh
+chmod +x *.sh
+chmod +x scripts/*
 
 # Run individual setup scripts
 ./install_packages.sh
 ./customize_shell.sh
+./setup_links.sh
 
 # Make common directories
 mkdir -p ~/projects
 mkdir -p ~/bin
 
-# Make Symlinks
-ln -s $(pwd)/scripts/weather ~/bin/weather
-ln -s $(which batcat) ~/bin/bat
-ln -s $(which fdfind) ~/bin/fd
+

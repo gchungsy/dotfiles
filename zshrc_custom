@@ -1,3 +1,11 @@
+# Use this file for configuring your shell environment and 
+# setting up aliases, functions, and environment variables
+
+
+# Environment variables
+export EDITOR=vim
+export PATH="$HOME/bin:$PATH"
+
 # Aliases for Common Commands
 alias ll='ls -laF'
 alias la='ls -A'
@@ -8,14 +16,14 @@ alias ~='cd ~ && ll'
 
 # Aliases for Directory and File Management
 alias mkdir='mkdir -pv'
-alias rm='rm -i'
-alias cp='cp -i'
+#alias rm='rm -i'
+#alias cp='cp -i'
 alias mv='mv -i'
 
 # System Maintenance
 alias update='sudo apt update && sudo apt upgrade'
 alias clean='sudo apt autoremove && sudo apt autoclean'
-alias sb='source ~/.bashrc'
+alias sb='source ~/.zshrc'
 
 # Shortcuts for Navigation
 alias prj='cd ~/projects && ll'
@@ -33,10 +41,6 @@ alias gd='git diff'
 # Docker Shortcuts
 alias d='docker'
 
-# Environment variables
-export EDITOR=vim
-export PATH="$HOME/bin:$PATH"
-
 # Aliases for Common Tasks
 alias mknt='vim ~/notes/note_$(date +"%Y-%m-%d").md'
 
@@ -46,10 +50,31 @@ function push() {
     g commit -m "$1"
     g push
 }
+
 log_command_usage() {
-    if [[ -n "$BASH_COMMAND" ]]; then
-        echo "$(date): $BASH_COMMAND" >> ~/.command_usage.log
+    if [[ -n "$ZSH_COMMAND" ]]; then
+        echo "$(date): $ZSH_COMMAND" >> ~/.command_usage.log
     fi
 }
 
-PROMPT_COMMAND='echo "Command $BASH_COMMAND"'
+log_command_usage_and_output() {
+    if [[ -n "$ZSH_COMMAND" ]]; then
+        {
+            echo "$(date): $ZSH_COMMAND"
+            eval "$ZSH_COMMAND" & >/dev/null 2>&1
+	    #disown %1 
+        } >> ~/.command_output.log >/dev/null 2>&1
+    fi
+}
+
+preexec() {
+    ZSH_COMMAND=$1
+}
+
+precmd() {
+    log_command_usage
+    #log_command_usage_and_output
+}
+
+# Setup symbolic links
+
