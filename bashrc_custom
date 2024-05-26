@@ -1,5 +1,7 @@
 # Aliases for Common Commands
-alias ll='ls -la'
+alias ll='ls -laF'
+alias la='ls -A'
+alias l='ls -CF'
 alias ..='cd .. && ll'
 alias ...='cd ../.. && ll'
 alias ~='cd ~ && ll'
@@ -13,7 +15,7 @@ alias mv='mv -i'
 # System Maintenance
 alias update='sudo apt update && sudo apt upgrade'
 alias clean='sudo apt autoremove && sudo apt autoclean'
-alias sb='source ~/.bashrc'
+alias sb='source ~/.zshrc'
 
 # Shortcuts for Navigation
 alias prj='cd ~/projects && ll'
